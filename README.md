@@ -2,19 +2,6 @@
 
 ## Project Structure
 
-```text
-The-Inclusion-Exchange/
-├── assets/
-│   ├── images/
-│   ├── logos/
-│   └── icons/
-├── css/
-│   └── style.css
-├── index.html
-├── CNAME
-└── README.md
-```
-
 ## Description
 
 This project was reorganised into a modular folder structure to improve maintainability and make it easier for future developers and interns to navigate the codebase.
