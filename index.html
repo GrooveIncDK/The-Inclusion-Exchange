@@ -1,108 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Inclusion Exchange</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Inclusion Exchange amplifies neurodivergent voices in business and beyond — connecting education with industry through workshops, events, podcasts and strategic partnerships.">
+<title>The Inclusion Exchange | Amplifying Neurodivergent Voices</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="icon" href="assets/images/logo.png">
+
+<style>
+
+/* ============ Design tokens ============ */
+:root{
+  --ink: #140f22;
+  --ink-2: #221a3d;
+  --cream: #f8f7fb;
+  --paper: #ffffff;
+
+  /* brand palette — lifted straight from the logo's brain/key gradient */
+  --blue: #2686c9;
+  --cyan: #22c3d9;
+  --teal: #15a889;
+  --teal-dark: #0e8a71;
+  --green: #6bc24a;
+  --yellow: #f3c531;
+  --orange: #f39c1f;
+  --coral: #e85a2b;
+  --pink: #d956a0;
+  --violet: #8e44ad;
+
+  --brand-gradient: linear-gradient(90deg, var(--blue), var(--cyan), var(--teal), var(--green), var(--yellow), var(--orange), var(--coral), var(--pink), var(--violet));
+  --brand-gradient-v: linear-gradient(180deg, var(--blue), var(--cyan), var(--teal), var(--green), var(--yellow), var(--orange), var(--coral), var(--pink), var(--violet));
+
+  --line: rgba(20,15,34,0.1);
+  --text: #221c33;
+  --text-soft: rgba(34,28,51,0.66);
+  --on-dark: rgba(248,247,251,0.92);
+  --on-dark-dim: rgba(248,247,251,0.66);
+  --shadow: 0 20px 50px -20px rgba(20,15,34,0.28);
+  --shadow-sm: 0 10px 25px -12px rgba(20,15,34,0.22);
+  --radius: 22px;
+  --radius-sm: 14px;
+  --container: 1160px;
+  --ease: cubic-bezier(.16,.8,.3,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Manrope', system-ui, sans-serif;
+  color:var(--text);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{
+  font-family:'Space Grotesk', system-ui, sans-serif;
+  font-weight:600;
+  line-height:1.1;
+  margin:0 0 .6em;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+}
+p{ margin:0 0 1.1em; color:var(--text-soft); line-height:1.75; }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+ul{ margin:0; padding:0; list-style:none; }
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+section[id]{ scroll-margin-top:104px; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--coral); margin-bottom:14px;
+}
+.eyebrow::before{ content:''; width:22px; height:3px; border-radius:2px; background:var(--brand-gradient); }
+
+h2{ font-size:clamp(1.9rem, 1.4rem + 2vw, 2.9rem); }
+
+.section-white{ background:var(--paper); }
+.section-tint{ background:var(--cream); }
+.section-dark{
+  background:linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 100%);
+  color:var(--on-dark); position:relative;
+}
+.section-dark h2, .section-dark h3{ color:#fff; }
+.section-dark p{ color:var(--on-dark-dim); }
+
+section{ padding:clamp(64px, 9vw, 128px) 0; }
+
+.section-divider{
+  height:1px; max-width:var(--container); margin:0 auto;
+  background:linear-gradient(90deg, transparent, var(--line), transparent);
+}
+
+/* full-width rainbow accent bar, echoes the logo gradient */
+.gradient-bar{
+  height:6px; width:100%;
+  background:var(--brand-gradient);
+  background-size:200% 100%;
+  animation:barShift 10s linear infinite;
+}
+@keyframes barShift{ from{ background-position:0% 0; } to{ background-position:200% 0; } }
+
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+.reveal-stagger > *{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal-stagger.in-view > *{ opacity:1; transform:translateY(0); }
+.reveal-stagger.in-view > *:nth-child(1){ transition-delay:.05s; }
+.reveal-stagger.in-view > *:nth-child(2){ transition-delay:.15s; }
+.reveal-stagger.in-view > *:nth-child(3){ transition-delay:.25s; }
+.reveal-stagger.in-view > *:nth-child(4){ transition-delay:.35s; }
+
+/* ============ Header ============ */
+header{ position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 0; transition:all .4s var(--ease); }
+header nav{ max-width:var(--container); margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+header.scrolled{
+  background:rgba(248,247,251,0.85); backdrop-filter:blur(16px) saturate(160%); -webkit-backdrop-filter:blur(16px) saturate(160%);
+  padding:8px 0; box-shadow:0 8px 30px -18px rgba(20,15,34,0.35);
+}
+header.scrolled::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--brand-gradient); opacity:.9; }
+
+/* logo — always on its own light chip so it reads on any background */
+.logo a{
+  display:inline-flex; align-items:center; gap:10px;
+  background:#fff; padding:8px 16px 8px 8px; border-radius:18px;
+  box-shadow:0 12px 30px -14px rgba(20,15,34,0.45);
+  transition:transform .35s var(--ease), padding .4s var(--ease);
+}
+.logo a:hover{ transform:translateY(-2px); box-shadow:0 16px 36px -14px rgba(20,15,34,0.5); }
+.logo a{ padding:8px; }
+.logo img{ height:72px; width:auto; display:block; transition:height .4s var(--ease); }
+header.scrolled .logo img{ height:56px; }
+header.scrolled .logo a{ padding:6px; }
+
+#nav-links{ display:flex; align-items:center; gap:4px; }
+#nav-links li a{
+  position:relative; display:inline-block; padding:10px 16px; font-size:.88rem; font-weight:700;
+  color:#fff; text-shadow:0 1px 6px rgba(0,0,0,0.35);
+  border-radius:999px; transition:background .3s var(--ease), color .3s var(--ease), text-shadow .3s var(--ease);
+}
+#nav-links li a::after{
+  content:''; position:absolute; left:16px; right:16px; bottom:6px; height:2px; border-radius:2px;
+  background:var(--brand-gradient); transform:scaleX(0); transform-origin:center; transition:transform .35s var(--ease);
+}
+#nav-links li a:hover{ background:rgba(255,255,255,0.18); color:#fff; }
+#nav-links li a:hover::after{ transform:scaleX(1); }
+
+header.scrolled #nav-links li a{ color:var(--ink); text-shadow:none; }
+header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var(--teal-dark); }
+
+.menu-toggle{
+  display:none; background:var(--ink); color:#fff; border:none; width:46px; height:46px; border-radius:12px;
+  font-size:1.25rem; cursor:pointer; align-items:center; justify-content:center; flex:none;
+}
+
+#overlay{
+  position:fixed; inset:0; background:rgba(20,15,34,0.6); backdrop-filter:blur(2px);
+  opacity:0; pointer-events:none; transition:opacity .35s var(--ease); z-index:998;
+}
+#overlay.active{ opacity:1; pointer-events:auto; }
+
+@media (max-width:860px){
+  .menu-toggle{ display:flex; }
+  #nav-links{
+    position:fixed; top:0; right:0; height:100vh; width:min(300px, 82vw); background:var(--ink);
+    flex-direction:column; align-items:flex-start; gap:4px; padding:110px 26px 30px;
+    transform:translateX(100%); transition:transform .45s var(--ease); z-index:999;
+    border-left:3px solid transparent; border-image:var(--brand-gradient-v) 1;
+  }
+  #nav-links.active{ transform:translateX(0); }
+  #nav-links li{ width:100%; }
+  #nav-links li a{ color:#fff; text-shadow:none; width:100%; padding:14px 14px; font-size:1rem; }
+  #nav-links li a::after{ left:14px; right:14px; }
+  #nav-links li a:hover{ background:rgba(255,255,255,0.1); color:var(--yellow); }
+}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative; min-height:100svh; display:flex; align-items:flex-end;
+  background:var(--ink); overflow:hidden;
+}
+.hero-media{ position:absolute; inset:0; }
+.hero-media img{
+  width:100%; height:100%; object-fit:cover; opacity:.5;
+  animation:heroZoom 18s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{ from{ transform:scale(1); } to{ transform:scale(1.08); } }
+.hero::after{
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(55% 55% at 12% 15%, rgba(38,134,201,0.4), transparent 60%),
+    radial-gradient(50% 50% at 88% 8%, rgba(142,68,173,0.35), transparent 60%),
+    radial-gradient(45% 45% at 70% 85%, rgba(243,156,31,0.28), transparent 60%),
+    linear-gradient(0deg, rgba(15,10,25,0.96) 0%, rgba(20,15,34,0.6) 55%, rgba(20,15,34,0.55) 100%);
+  z-index:1;
+}
+.hero-text{ position:relative; z-index:2; width:100%; max-width:var(--container); margin:0 auto; padding:0 28px 110px; }
+.hero-text .eyebrow{ color:var(--yellow); }
+.hero-text .eyebrow::before{ background:var(--brand-gradient); }
+.hero-text h1{ color:#fff; font-size:clamp(2.3rem, 1.5rem + 4vw, 4.2rem); max-width:840px; margin-bottom:.35em; }
+.hero-text h1 em{ font-style:normal; background:var(--brand-gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-sub{ color:var(--on-dark-dim); max-width:540px; font-size:1.05rem; margin-bottom:1.7em; }
+.hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:.9rem;
+  padding:15px 26px; border-radius:999px; transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.btn-primary{ background:linear-gradient(120deg, var(--orange), var(--coral)); color:#fff; box-shadow:0 14px 30px -12px rgba(232,90,43,0.55); }
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 18px 36px -12px rgba(232,90,43,0.75); }
+.btn-ghost{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.3); backdrop-filter:blur(6px); }
+.btn-ghost:hover{ background:rgba(255,255,255,0.16); transform:translateY(-3px); }
+
+.scroll-cue{
+  position:absolute; z-index:2; right:32px; bottom:36px; color:var(--on-dark-dim); font-size:.72rem;
+  letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:10px;
+}
+.scroll-cue::after{
+  content:''; width:2px; height:34px; border-radius:2px; background:var(--brand-gradient-v);
+  animation:scrollCue 2s ease-in-out infinite;
+}
+@keyframes scrollCue{ 0%{ opacity:.25; } 50%{ opacity:1; } 100%{ opacity:.25; } }
+@media (max-width:640px){ .scroll-cue{ display:none; } }
+
+/* ============ About ============ */
+.about-grid{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:center; }
+.about-figure{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.about-figure img{ width:100%; height:100%; object-fit:cover; }
+.about-badge{
+  position:absolute; left:-18px; bottom:-18px; background:var(--paper); border-radius:var(--radius-sm);
+  padding:16px 20px; box-shadow:var(--shadow-sm); font-family:'Space Grotesk',sans-serif; font-weight:600;
+  display:flex; align-items:center; gap:10px;
+}
+.about-badge .dot{ width:12px; height:12px; border-radius:50%; background:var(--brand-gradient); box-shadow:0 0 0 6px rgba(38,134,201,0.12); }
+.about-badge span{ font-size:.82rem; color:var(--ink); font-weight:700; }
+.about-copy p:first-of-type{ font-size:1.15rem; color:var(--text); }
+@media (max-width:860px){
+  .about-grid{ grid-template-columns:1fr; gap:40px; }
+  .about-figure{ max-width:380px; margin:0 auto; }
+}
+
+/* ============ Vision & Mission ============ */
+.vm-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px; }
+.vm-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:36px 32px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.vm-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:var(--brand-gradient);
+}
+.vm-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow); }
+.vm-card .tag{
+  display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--violet); background:rgba(142,68,173,0.1); padding:6px 12px; border-radius:999px; margin-bottom:16px;
+}
+.vm-card p{ font-size:1rem; margin-bottom:0; }
+.vm-image{ margin-top:36px; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); }
+@media (max-width:860px){ .vm-grid{ grid-template-columns:1fr; } }
+
+/* ============ What We Do ============ */
+.wwd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:44px; align-items:start; }
+.wwd-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:32px 30px; box-shadow:var(--shadow-sm);
+}
+.wwd-card h3{ font-size:1.15rem; margin-bottom:1em; display:flex; align-items:center; gap:10px; }
+.wwd-card h3::before{
+  content:''; width:10px; height:10px; border-radius:3px; background:var(--coral); flex:none;
+}
+.wwd-card li{
+  position:relative; padding-left:26px; margin-bottom:14px; font-size:.95rem; color:var(--text-soft); line-height:1.6;
+}
+.wwd-card li::before{
+  content:'✓'; position:absolute; left:0; top:0; color:var(--teal-dark); font-weight:800; font-size:.85rem;
+}
+.wwd-image{ margin-top:26px; border-radius:var(--radius-sm); overflow:hidden; }
+@media (max-width:860px){ .wwd-grid{ grid-template-columns:1fr; } }
+
+/* ============ Partnerships ============ */
+.section-dark .partner-wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; }
+.quote-mark{ font-family:'Space Grotesk',sans-serif; font-size:4.5rem; color:var(--yellow); line-height:.5; margin-bottom:.3em; display:block; }
+.partner-image{ border-radius:var(--radius); overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.6); }
+@media (max-width:860px){ .section-dark .partner-wrap{ grid-template-columns:1fr; } .partner-image{ order:-1; } }
+
+/* ============ Get Involved / Contact ============ */
+.contact{ text-align:center; background:var(--cream); }
+.contact .container{ max-width:700px; }
+.contact-card{
+  display:inline-flex; align-items:center; gap:12px; background:var(--paper); border:1px solid var(--line);
+  border-radius:999px; padding:16px 30px; box-shadow:var(--shadow-sm); font-weight:700; color:var(--ink);
+  margin-top:18px; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.contact-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+.contact-card span.ico{ color:var(--teal-dark); font-size:1.1rem; }
+
+/* ============ Footer ============ */
+footer{ background:var(--ink); color:var(--on-dark-dim); text-align:center; padding:50px 28px 40px; }
+footer h3{ color:#fff; font-size:1rem; margin-bottom:.3em; }
+footer p{ color:var(--on-dark-dim); margin-bottom:14px; font-size:.85rem; }
+footer a{ display:inline-flex; }
+footer img{ height:24px; width:auto; opacity:.85; transition:opacity .3s var(--ease); }
+footer a:hover img{ opacity:1; }
+
+.section-head{ max-width:640px; margin-bottom:6px; }
+::selection{ background:var(--teal); color:#fff; }
+
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">
-    <img src="assets/images/logo.png" alt="The Inclusion Exchange Logo">
-  </div>
-  <p>Amplifying Neurodivergent Voices in Business & Beyond</p>
   <nav>
-    <a href="#about">About</a>
-    <a href="#vision">Vision & Mission</a>
-    <a href="#services">Our Work</a>
-    <a href="#partnerships">Partnerships</a>
-    <a href="#contact">Contact</a>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo.png" alt="The Inclusion Exchange logo">
+      </a>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#vision">Vision &amp; Mission</a></li>
+      <li><a href="#services">Our Work</a></li>
+      <li><a href="#partnerships">Partnerships</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 </header>
 
+<div id="overlay"></div>
+
+<div class="hero">
+  <div class="hero-media">
+    <img src="assets/images/Photo1.png" alt="">
+  </div>
+
+  <div class="hero-text">
+    <div class="eyebrow">The Inclusion Exchange</div>
+    <h1>Amplifying <em>Neurodivergent Voices</em> in Business &amp; Beyond</h1>
+    <p class="hero-sub">A platform that empowers neurodivergent professionals to lead conversations on inclusivity, innovation, and workplace culture — connecting education with industry.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Get Involved →</a>
+      <a href="#about" class="btn btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+</div>
+
 <div class="gradient-bar"></div>
 
-<main>
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      The Inclusion Exchange is a platform that empowers neurodivergent professionals 
-      to lead conversations on inclusivity, innovation, and workplace culture. 
-      We connect education with industry, creating inclusive spaces that amplify 
-      voices and foster collaboration across communities.
-    </p>
-    <div class="img-block">
-      <img src="assets/images/Photo1.png" alt="Inclusive collaboration illustration">
-    </div>
-  </section>
+<section id="about" class="section-white">
+  <div class="container">
+    <div class="about-grid">
 
-  <section id="vision">
-    <h2>Vision & Mission</h2>
-    <p><strong>Vision:</strong> To reshape business communication through the lens of neurodiversity, 
-      empowering neurodivergent professionals to lead the dialogue on inclusion and innovation.</p>
-    <p><strong>Mission:</strong> To build a vibrant platform—both physical and digital—that amplifies 
-      neurodivergent voices, connects education with industry, and drives cross-cultural collaboration.</p>
-    <div class="img-block">
+      <div class="about-figure reveal">
+        <img src="assets/images/Photo1.png" alt="Inclusive collaboration illustration">
+        <div class="about-badge"><span class="dot"></span><span>Neurodivergent‑led</span></div>
+      </div>
+
+      <div class="about-copy reveal">
+        <div class="eyebrow">About Us</div>
+        <h2>Empowering voices, connecting worlds</h2>
+        <p>
+          The Inclusion Exchange is a platform that empowers neurodivergent professionals to lead conversations on inclusivity, innovation, and workplace culture.
+        </p>
+        <p>
+          We connect education with industry, creating inclusive spaces that amplify voices and foster collaboration across communities.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="vision" class="section-tint">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">Where We're Headed</div>
+      <h2>Vision &amp; Mission</h2>
+    </div>
+
+    <div class="vm-grid reveal-stagger">
+
+      <div class="vm-card">
+        <span class="tag">Vision</span>
+        <p>To reshape business communication through the lens of neurodiversity, empowering neurodivergent professionals to lead the dialogue on inclusion and innovation.</p>
+      </div>
+
+      <div class="vm-card">
+        <span class="tag">Mission</span>
+        <p>To build a vibrant platform — both physical and digital — that amplifies neurodivergent voices, connects education with industry, and drives cross‑cultural collaboration.</p>
+      </div>
+
+    </div>
+
+    <div class="vm-image reveal">
       <img src="assets/images/Photo2.png" alt="Vision and mission concept illustration">
     </div>
-  </section>
 
-  <section id="services">
-    <h2>What We Do</h2>
-    <h3>Key Objectives</h3>
-    <ul>
-      <li>Empower neurodivergent individuals to lead the conversation.</li>
-      <li>Offer accessible educational workshops and outreach in schools and colleges.</li>
-      <li>Build strategic partnerships with institutions, businesses, and advocacy organizations.</li>
-      <li>Host high-profile hybrid events with international reach.</li>
-      <li>Establish a strong presence across media and social channels.</li>
-    </ul>
+  </div>
+</section>
 
-    <h3>Core Activities</h3>
-    <ul>
-      <li>Educational workshops & toolkits for schools and educators.</li>
-      <li>Hybrid events, panels, and keynotes featuring neurodivergent leaders.</li>
-      <li>Podcasts and livestreams: “Voices of Business.”</li>
-      <li>Collaborative partnerships with international organizations.</li>
-    </ul>
-    <div class="img-block">
+<div class="section-divider"></div>
+
+<section id="services" class="section-white">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2>Building the exchange</h2>
+    </div>
+
+    <div class="wwd-grid reveal-stagger">
+
+      <div class="wwd-card">
+        <h3>Key Objectives</h3>
+        <ul>
+          <li>Empower neurodivergent individuals to lead the conversation.</li>
+          <li>Offer accessible educational workshops and outreach in schools and colleges.</li>
+          <li>Build strategic partnerships with institutions, businesses, and advocacy organisations.</li>
+          <li>Host high‑profile hybrid events with international reach.</li>
+          <li>Establish a strong presence across media and social channels.</li>
+        </ul>
+      </div>
+
+      <div class="wwd-card">
+        <h3>Core Activities</h3>
+        <ul>
+          <li>Educational workshops &amp; toolkits for schools and educators.</li>
+          <li>Hybrid events, panels, and keynotes featuring neurodivergent leaders.</li>
+          <li>Podcasts and livestreams: "Voices of Business."</li>
+          <li>Collaborative partnerships with international organisations.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="wwd-image reveal">
       <img src="assets/images/Photo3.png" alt="Workshops and events illustration">
     </div>
-  </section>
 
-  <section id="partnerships">
-    <h2>Partnerships</h2>
-    <p>
-      We believe inclusion grows through collaboration. Our partners—schools, businesses, 
-      advocacy groups, and cultural institutions—help us expand the reach of neurodivergent 
-      voices. Together, we create sustainable opportunities for education, innovation, 
-      and empowerment.
-    </p>
-    <div class="img-block">
-      <img src="assets/images/Photo4.png" alt="Partnership handshake graphic">
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="partnerships" class="section-dark">
+  <div class="container">
+    <div class="partner-wrap">
+
+      <div class="reveal">
+        <span class="quote-mark">"</span>
+        <div class="eyebrow" style="color:var(--yellow)">Partnerships</div>
+        <h2>Inclusion grows through collaboration</h2>
+        <p>
+          We believe inclusion grows through collaboration. Our partners — schools, businesses, advocacy groups, and cultural institutions — help us expand the reach of neurodivergent voices.
+        </p>
+        <p>
+          Together, we create sustainable opportunities for education, innovation, and empowerment.
+        </p>
+      </div>
+
+      <div class="partner-image reveal">
+        <img src="assets/images/Photo4.png" alt="Partnership handshake graphic">
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="cta">
-    <h2>Get Involved</h2>
+<section class="contact" id="contact">
+  <div class="container reveal">
+    <div class="eyebrow" style="justify-content:center;">Get Involved</div>
+    <h2>Join us in building inclusive futures</h2>
     <p>
-      Whether you’re a business leader, educator, or advocate, we invite you to join us. 
-      Together, we can unlock potential and build inclusive futures. 
+      Whether you're a business leader, educator, or advocate, we invite you to join us. Together, we can unlock potential and build inclusive futures.
     </p>
-    <p>
-      Contact us at: <a href="mailto:elizabeth@theinclusionexchange.uk">elizabeth@theinclusionexchange.uk</a>
-    </p>
-  </section>
-</main>
+    <a class="contact-card" href="mailto:elizabeth@theinclusionexchange.uk"><span class="ico">✉</span> elizabeth@theinclusionexchange.uk</a>
+  </div>
+</section>
 
 <div class="gradient-bar"></div>
 
 <footer>
-  <p>&copy; 2025 The Inclusion Exchange. All rights reserved.</p>powered by <br><a href="Http://www.grooveinc.uk"> <img src="assets/images/grooveinclogo.png" alt="">
-								</a>
+  <h3>© 2026 The Inclusion Exchange. All rights reserved.</h3>
+  <p>Powered by</p>
+  <a href="https://www.grooveinc.uk" target="_blank" rel="noopener">
+    <img src="assets/images/grooveinclogo.png" alt="Groove Inc">
+  </a>
 </footer>
+
+<script>
+/* ---------- Mobile nav ---------- */
+const navToggle = document.querySelector('.menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const overlay = document.getElementById('overlay');
+
+function closeMenu(){
+  navLinks.classList.remove('active');
+  overlay.classList.remove('active');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.textContent = '☰';
+}
+
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  overlay.classList.toggle('active');
+  const isOpen = navLinks.classList.contains('active');
+  navToggle.setAttribute('aria-expanded', isOpen);
+  navToggle.textContent = isOpen ? '×' : '☰';
+});
+
+overlay.addEventListener('click', closeMenu);
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+/* ---------- Sticky header on scroll ---------- */
+const header = document.querySelector('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+document.addEventListener('scroll', onScroll, { passive:true });
+onScroll();
+
+/* ---------- Scroll reveal ---------- */
+const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('in-view');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
