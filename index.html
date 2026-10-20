@@ -176,6 +176,9 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
   #nav-links li a{ color:#fff; text-shadow:none; width:100%; padding:14px 14px; font-size:1rem; }
   #nav-links li a::after{ left:14px; right:14px; }
   #nav-links li a:hover{ background:rgba(255,255,255,0.1); color:var(--yellow); }
+  /* the drawer is always dark: keep its own colours when the desktop "scrolled" header styles apply */
+  header.scrolled #nav-links li a{ color:#fff; }
+  header.scrolled #nav-links li a:hover{ background:rgba(255,255,255,0.1); color:var(--yellow); }
 }
 
 /* ============ Hero ============ */
@@ -420,7 +423,7 @@ footer a:hover img{ opacity:1; }
   <nav>
     <div class="logo">
       <a href="index.html">
-        <img src="assets/images/tie-logo-web.png" width="116" height="144" alt="The Inclusion Exchange logo">
+        <img src="assets/images/tie-icon-web.png" width="161" height="144" alt="The Inclusion Exchange — home">
       </a>
     </div>
 
@@ -538,7 +541,7 @@ footer a:hover img{ opacity:1; }
             <li>Inclusive leadership and policy design</li>
           </ul>
           <p class="for">Who it's for: <span>leadership teams, HR and people managers</span></p>
-          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Workplace%20Strategy%20enquiry">Discuss your workplace →</a>
+          <a class="offer-cta" href="#contact" data-topic="Workplace Strategy">Discuss your workplace →</a>
         </div>
 
         <div class="offer-card" style="--accent:var(--orange)">
@@ -551,7 +554,7 @@ footer a:hover img{ opacity:1; }
             <li>Delivered in person, online or hybrid</li>
           </ul>
           <p class="for">Who it's for: <span>managers, teams and whole organisations</span></p>
-          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Training%20enquiry">Book a workshop →</a>
+          <a class="offer-cta" href="#contact" data-topic="Training &amp; Awareness / workshops">Book a workshop →</a>
         </div>
 
       </div>
@@ -582,21 +585,21 @@ footer a:hover img{ opacity:1; }
           <div class="num">03</div>
           <h3>Talent Partnerships</h3>
           <p>Connecting forward-thinking businesses with skilled neurodivergent professionals.</p>
-          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Talent%20Partnerships">Find out more →</a>
+          <a class="offer-cta" href="#contact" data-topic="Talent Partnerships">Find out more →</a>
         </div>
 
         <div class="offer-card" style="--accent:var(--purple)">
           <div class="num">04</div>
           <h3>Events &amp; Voices</h3>
           <p>Panels, keynotes and hybrid events led by neurodivergent speakers, plus the <em>Voices of Business</em> podcast and livestreams.</p>
-          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Speaker%20or%20event%20enquiry">Invite a speaker →</a>
+          <a class="offer-cta" href="#contact" data-topic="Events &amp; speakers">Invite a speaker →</a>
         </div>
 
         <div class="offer-card" style="--accent:var(--green)">
           <div class="num">05</div>
           <h3>Community &amp; Education</h3>
           <p>Extending inclusion beyond the workplace — workshops and outreach toolkits for schools, colleges and educators.</p>
-          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Community%20and%20education">Get in touch →</a>
+          <a class="offer-cta" href="#contact" data-topic="Community &amp; Education">Get in touch →</a>
         </div>
 
       </div>
@@ -607,7 +610,7 @@ footer a:hover img{ opacity:1; }
         <div class="num">06</div>
         <h3>Partner with us</h3>
         <p>Sponsorship and partnership packages are available, from community sponsor to headline partner. Details and pricing on request.</p>
-        <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Sponsorship%20and%20partnership%20enquiry">Request partnership details →</a>
+        <a class="offer-cta" href="#contact" data-topic="Partnership &amp; sponsorship">Request partnership details →</a>
       </div>
     </div>
 
@@ -629,7 +632,7 @@ footer a:hover img{ opacity:1; }
           <span>Wed 4 November</span><span>12:00 GMT</span><span>Online</span>
         </div>
         <p>A CMI Regional Voice panel for the West Midlands &amp; North West, moderated by our director Elizabeth Cameron, with practical strategies managers can put into practice.</p>
-        <p>Joined us from the webinar? See <a href="#services" style="color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--purple)">what we offer</a>, or get in touch to continue the conversation.</p>
+        <p>Joined us from the webinar? See <a href="#services" style="color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--purple)">what we offer</a>, or <a href="#contact" data-topic="Following up from the CMI webinar" style="color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--purple)">get in touch</a> to continue the conversation.</p>
       </div>
     </div>
   </div>
@@ -725,7 +728,7 @@ footer a:hover img{ opacity:1; }
 
       <div class="form-foot">
         <button class="btn btn-primary" type="submit">Send message →</button>
-        <p class="privacy-note">We'll only use these details to reply to your enquiry. Messages are delivered by Formspree, a third-party form service.</p>
+        <p class="privacy-note">We'll only use these details to reply to your enquiry. Messages are delivered by Formspree, a third-party form service. See our <a href="privacy.html" style="text-decoration:underline">privacy notice</a>.</p>
       </div>
       <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
     </form>
@@ -738,6 +741,7 @@ footer a:hover img{ opacity:1; }
 
 <footer>
   <h3>© 2026 The Inclusion Exchange. All rights reserved.</h3>
+  <p><a href="privacy.html" style="text-decoration:underline">Privacy notice</a></p>
   <p>Powered by</p>
   <a href="https://www.grooveinc.uk" target="_blank" rel="noopener">
     <img src="assets/images/grooveinclogo.png" alt="Groove Inc">
@@ -798,9 +802,15 @@ const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
   const btn = form.querySelector('button[type=submit]');
   if (FORMSPREE_ID) form.action = 'https://formspree.io/f/' + FORMSPREE_ID;
 
-  // pre-select topic from links like #contact?topic=Talent%20Partnerships
-  const m = location.hash.match(/topic=([^&]+)/);
-  if (m) { const t = decodeURIComponent(m[1]); [...form.topic.options].forEach(o => { if (o.text.startsWith(t)) o.selected = true; }); }
+  // service buttons: jump to the form with the matching topic selected
+  document.querySelectorAll('a[data-topic]').forEach(a => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const t = a.dataset.topic;
+    [...form.topic.options].forEach(o => { o.selected = (o.text === t); });
+    document.getElementById('contact').scrollIntoView({ behavior:'smooth' });
+    setTimeout(() => document.getElementById('cf-name').focus({ preventScroll:true }), 500);
+    history.replaceState(null, '', '#contact');
+  }));
 
   form.querySelectorAll('.field-error').forEach(e => { e.dataset.default = e.textContent; });
   const required = [['cf-name', v => v.trim().length > 0], ['cf-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())], ['cf-message', v => v.trim().length > 0]];
