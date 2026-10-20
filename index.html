@@ -671,7 +671,8 @@ footer a:hover img{ opacity:1; }
       </p>
     </div>
 
-    <form id="contact-form" class="contact-form reveal" action="mailto:elizabeth@theinclusionexchange.uk" method="post" enctype="text/plain" novalidate>
+    <form id="contact-form" class="contact-form reveal" action="https://formspree.io/f/xyekavga" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="Website enquiry">
       <div class="field-row">
         <div class="field">
           <label for="cf-name">Your name <span class="req" aria-hidden="true">*</span></label>
@@ -788,7 +789,7 @@ revealEls.forEach(el => io.observe(el));
 /* ---------- Contact form ----------
    Set FORMSPREE_ID to the form ID from the client's Formspree account (e.g. 'xyzabcd').
    While it is empty, the form opens the visitor's email app with the message pre-filled. */
-const FORMSPREE_ID = '';
+const FORMSPREE_ID = 'xyekavga';
 const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
 (function(){
   const form = document.getElementById('contact-form');
@@ -801,6 +802,7 @@ const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
   const m = location.hash.match(/topic=([^&]+)/);
   if (m) { const t = decodeURIComponent(m[1]); [...form.topic.options].forEach(o => { if (o.text.startsWith(t)) o.selected = true; }); }
 
+  form.querySelectorAll('.field-error').forEach(e => { e.dataset.default = e.textContent; });
   const required = [['cf-name', v => v.trim().length > 0], ['cf-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())], ['cf-message', v => v.trim().length > 0]];
   function validate(){
     let first = null;
@@ -808,7 +810,7 @@ const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
       const el = document.getElementById(id), err = document.getElementById(id + '-err'), good = ok(el.value);
       el.setAttribute('aria-invalid', good ? 'false' : 'true');
       if (good) { el.removeAttribute('aria-describedby'); err.hidden = true; }
-      else { el.setAttribute('aria-describedby', id + '-err'); err.hidden = false; first = first || el; }
+      else { el.setAttribute('aria-describedby', id + '-err'); err.textContent = err.dataset.default; err.hidden = false; first = first || el; }
     });
     if (first) first.focus();
     return !first;
@@ -820,6 +822,7 @@ const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
     say('');
     if (!validate()) return;
     if (form._gotcha.value) return;   // spam trap
+    form._subject.value = 'Website enquiry: ' + form.topic.value;
     const data = new FormData(form);
 
     if (!FORMSPREE_ID) {
@@ -834,7 +837,19 @@ const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
     btn.disabled = true; say('Sending…');
     try {
       const res = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' } });
-      if (!res.ok) throw new Error(res.status);
+      if (!res.ok) {
+        let body = {}; try { body = await res.json(); } catch (_) {}
+        const errs = (body && body.errors) || [];
+        if (errs.length) {
+          const map = { name:'cf-name', email:'cf-email', message:'cf-message' };
+          let shown = false;
+          errs.forEach(er => { const id = map[er.field]; if (id) { const el = document.getElementById(id), box = document.getElementById(id + '-err');
+            el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby', id + '-err'); box.textContent = er.message; box.hidden = false; if (!shown) { el.focus(); shown = true; } } });
+          say(shown ? 'Please check the highlighted field.' : errs.map(er => er.message).join(' '), 'err');
+          return;
+        }
+        throw new Error(res.status);
+      }
       form.reset();
       say('Thank you — your message has been sent. We\'ll be in touch soon.', 'ok');
     } catch (err) {
