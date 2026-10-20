@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Inclusion Exchange amplifies neurodivergent voices in business and beyond — connecting education with industry through workshops, events, podcasts and strategic partnerships.">
+<meta name="description" content="The Inclusion Exchange helps employers and managers build practical, needs-led neuro-inclusion — workplace strategy, training, talent partnerships, events and community programmes.">
 <title>The Inclusion Exchange | Amplifying Neurodivergent Voices</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
-<link rel="icon" href="assets/images/logo.png">
+<link rel="icon" type="image/png" href="assets/images/tie-icon-64.png">
 
 <style>
 
@@ -21,20 +21,17 @@
   --cream: #f8f7fb;
   --paper: #ffffff;
 
-  /* brand palette — lifted straight from the logo's brain/key gradient */
-  --blue: #2686c9;
-  --cyan: #22c3d9;
-  --teal: #15a889;
-  --teal-dark: #0e8a71;
-  --green: #6bc24a;
-  --yellow: #f3c531;
-  --orange: #f39c1f;
-  --coral: #e85a2b;
-  --pink: #d956a0;
-  --violet: #8e44ad;
+  /* brand palette — Omega Essentials v1 (20 Oct 2026): sampled from the logo icon */
+  --blue: #1FA6E3;
+  --cyan: #24BEAB;
+  --green: #4EB258;
+  --lime: #A6D450;
+  --yellow: #FFD032;
+  --orange: #FF9A35;
+  --purple: #9B2C9E;   /* key purple: calls to action; takes white text */
 
-  --brand-gradient: linear-gradient(90deg, var(--blue), var(--cyan), var(--teal), var(--green), var(--yellow), var(--orange), var(--coral), var(--pink), var(--violet));
-  --brand-gradient-v: linear-gradient(180deg, var(--blue), var(--cyan), var(--teal), var(--green), var(--yellow), var(--orange), var(--coral), var(--pink), var(--violet));
+  --brand-gradient: linear-gradient(90deg, var(--blue), var(--cyan), var(--green), var(--lime), var(--yellow), var(--orange), var(--purple));
+  --brand-gradient-v: linear-gradient(180deg, var(--blue), var(--cyan), var(--green), var(--lime), var(--yellow), var(--orange), var(--purple));
 
   --line: rgba(20,15,34,0.1);
   --text: #221c33;
@@ -53,15 +50,15 @@
 html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  font-family:'Manrope', system-ui, sans-serif;
+  font-family:'Lato', system-ui, sans-serif;
   color:var(--text);
   background:var(--cream);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 h1,h2,h3,h4{
-  font-family:'Space Grotesk', system-ui, sans-serif;
-  font-weight:600;
+  font-family:'Montserrat', system-ui, sans-serif;
+  font-weight:700;
   line-height:1.1;
   margin:0 0 .6em;
   color:var(--ink);
@@ -77,7 +74,7 @@ section[id]{ scroll-margin-top:104px; }
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px;
   font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--coral); margin-bottom:14px;
+  color:var(--purple); margin-bottom:14px;
 }
 .eyebrow::before{ content:''; width:22px; height:3px; border-radius:2px; background:var(--brand-gradient); }
 
@@ -153,7 +150,7 @@ header.scrolled .logo a{ padding:6px; }
 #nav-links li a:hover::after{ transform:scaleX(1); }
 
 header.scrolled #nav-links li a{ color:var(--ink); text-shadow:none; }
-header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var(--teal-dark); }
+header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var(--purple); }
 
 .menu-toggle{
   display:none; background:var(--ink); color:#fff; border:none; width:46px; height:46px; border-radius:12px;
@@ -195,9 +192,9 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
 .hero::after{
   content:''; position:absolute; inset:0;
   background:
-    radial-gradient(55% 55% at 12% 15%, rgba(38,134,201,0.4), transparent 60%),
-    radial-gradient(50% 50% at 88% 8%, rgba(142,68,173,0.35), transparent 60%),
-    radial-gradient(45% 45% at 70% 85%, rgba(243,156,31,0.28), transparent 60%),
+    radial-gradient(55% 55% at 12% 15%, rgba(31,166,227,0.4), transparent 60%),
+    radial-gradient(50% 50% at 88% 8%, rgba(155,44,158,0.35), transparent 60%),
+    radial-gradient(45% 45% at 70% 85%, rgba(255,154,53,0.28), transparent 60%),
     linear-gradient(0deg, rgba(15,10,25,0.96) 0%, rgba(20,15,34,0.6) 55%, rgba(20,15,34,0.55) 100%);
   z-index:1;
 }
@@ -212,8 +209,8 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
   display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:.9rem;
   padding:15px 26px; border-radius:999px; transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
 }
-.btn-primary{ background:linear-gradient(120deg, var(--orange), var(--coral)); color:#fff; box-shadow:0 14px 30px -12px rgba(232,90,43,0.55); }
-.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 18px 36px -12px rgba(232,90,43,0.75); }
+.btn-primary{ background:var(--purple); color:#fff; box-shadow:0 14px 30px -12px rgba(155,44,158,0.55); }
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 18px 36px -12px rgba(155,44,158,0.75); }
 .btn-ghost{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.3); backdrop-filter:blur(6px); }
 .btn-ghost:hover{ background:rgba(255,255,255,0.16); transform:translateY(-3px); }
 
@@ -234,10 +231,10 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
 .about-figure img{ width:100%; height:100%; object-fit:cover; }
 .about-badge{
   position:absolute; left:-18px; bottom:-18px; background:var(--paper); border-radius:var(--radius-sm);
-  padding:16px 20px; box-shadow:var(--shadow-sm); font-family:'Space Grotesk',sans-serif; font-weight:600;
+  padding:16px 20px; box-shadow:var(--shadow-sm); font-family:'Montserrat',sans-serif; font-weight:600;
   display:flex; align-items:center; gap:10px;
 }
-.about-badge .dot{ width:12px; height:12px; border-radius:50%; background:var(--brand-gradient); box-shadow:0 0 0 6px rgba(38,134,201,0.12); }
+.about-badge .dot{ width:12px; height:12px; border-radius:50%; background:var(--brand-gradient); box-shadow:0 0 0 6px rgba(31,166,227,0.12); }
 .about-badge span{ font-size:.82rem; color:var(--ink); font-weight:700; }
 .about-copy p:first-of-type{ font-size:1.15rem; color:var(--text); }
 @media (max-width:860px){
@@ -259,7 +256,7 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
 .vm-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow); }
 .vm-card .tag{
   display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--violet); background:rgba(142,68,173,0.1); padding:6px 12px; border-radius:999px; margin-bottom:16px;
+  color:var(--purple); background:rgba(155,44,158,0.1); padding:6px 12px; border-radius:999px; margin-bottom:16px;
 }
 .vm-card p{ font-size:1rem; margin-bottom:0; }
 .vm-image{ margin-top:36px; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); }
@@ -273,20 +270,20 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
 }
 .wwd-card h3{ font-size:1.15rem; margin-bottom:1em; display:flex; align-items:center; gap:10px; }
 .wwd-card h3::before{
-  content:''; width:10px; height:10px; border-radius:3px; background:var(--coral); flex:none;
+  content:''; width:10px; height:10px; border-radius:3px; background:var(--purple); flex:none;
 }
 .wwd-card li{
   position:relative; padding-left:26px; margin-bottom:14px; font-size:.95rem; color:var(--text-soft); line-height:1.6;
 }
 .wwd-card li::before{
-  content:'✓'; position:absolute; left:0; top:0; color:var(--teal-dark); font-weight:800; font-size:.85rem;
+  content:'✓'; position:absolute; left:0; top:0; color:var(--purple); font-weight:800; font-size:.85rem;
 }
 .wwd-image{ margin-top:26px; border-radius:var(--radius-sm); overflow:hidden; }
 @media (max-width:860px){ .wwd-grid{ grid-template-columns:1fr; } }
 
 /* ============ Partnerships ============ */
 .section-dark .partner-wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; }
-.quote-mark{ font-family:'Space Grotesk',sans-serif; font-size:4.5rem; color:var(--yellow); line-height:.5; margin-bottom:.3em; display:block; }
+.quote-mark{ font-family:'Montserrat',sans-serif; font-size:4.5rem; color:var(--yellow); line-height:.5; margin-bottom:.3em; display:block; }
 .partner-image{ border-radius:var(--radius); overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.6); }
 @media (max-width:860px){ .section-dark .partner-wrap{ grid-template-columns:1fr; } .partner-image{ order:-1; } }
 
@@ -299,7 +296,7 @@ header.scrolled #nav-links li a:hover{ background:rgba(20,15,34,0.06); color:var
   margin-top:18px; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
 }
 .contact-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
-.contact-card span.ico{ color:var(--teal-dark); font-size:1.1rem; }
+.contact-card span.ico{ color:var(--purple); font-size:1.1rem; }
 
 /* ============ Footer ============ */
 footer{ background:var(--ink); color:var(--on-dark-dim); text-align:center; padding:50px 28px 40px; }
@@ -309,8 +306,110 @@ footer a{ display:inline-flex; }
 footer img{ height:24px; width:auto; opacity:.85; transition:opacity .3s var(--ease); }
 footer a:hover img{ opacity:1; }
 
+/* ============ What We Offer ============ */
+.offer-intro{ max-width:720px; }
+.offer-intro .lead{ font-size:1.12rem; color:var(--text); }
+.audience{ margin-top:56px; }
+.audience-label{
+  display:flex; align-items:center; gap:14px; margin-bottom:22px;
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink);
+}
+.audience-label::after{ content:''; flex:1; height:1px; background:var(--line); }
+.offer-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
+.offer-grid.three{ grid-template-columns:repeat(3, 1fr); }
+.offer-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:32px 30px 28px; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;
+  position:relative; overflow:hidden; transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.offer-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+.offer-card::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--accent, var(--cyan)); }
+.offer-card .num{ font-family:'Montserrat',sans-serif; font-weight:900; font-size:.8rem; letter-spacing:.12em; color:var(--ink); margin-bottom:10px; }
+.offer-card h3{ font-size:1.3rem; margin-bottom:.5em; }
+.offer-card p{ font-size:.97rem; margin-bottom:1em; }
+.offer-card ul{ margin:0 0 1.2em; }
+.offer-card li{ position:relative; padding-left:24px; margin-bottom:9px; font-size:.93rem; color:var(--text-soft); line-height:1.55; }
+.offer-card li::before{ content:'✓'; position:absolute; left:0; top:0; color:var(--purple); font-weight:900; font-size:.85rem; }
+.offer-card .for{ font-size:.8rem; font-weight:700; color:var(--ink); margin-bottom:1.2em; }
+.offer-card .for span{ color:var(--text-soft); font-weight:400; }
+.offer-cta{
+  margin-top:auto; align-self:flex-start; display:inline-flex; align-items:center; gap:8px;
+  font-weight:700; font-size:.88rem; color:var(--ink); padding:11px 18px; border-radius:999px;
+  border:1px solid var(--line); transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.offer-cta:hover{ background:var(--ink); color:#fff; border-color:var(--ink); }
+
+.programme{
+  margin-top:24px; background:linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 100%); color:var(--on-dark);
+  border-radius:var(--radius); padding:36px 34px; display:grid; grid-template-columns:0.8fr 1.2fr; gap:40px; align-items:start;
+}
+.programme h3{ color:#fff; font-size:1.3rem; }
+.programme p{ color:var(--on-dark-dim); font-size:.95rem; }
+.programme .tag{
+  display:inline-block; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink); background:var(--yellow); padding:6px 12px; border-radius:999px; margin-bottom:16px;
+}
+.programme ol{ list-style:none; margin:0; padding:0; counter-reset:wk; display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; }
+.programme ol li{ counter-increment:wk; position:relative; padding:12px 14px 12px 50px; background:rgba(255,255,255,0.06); border-radius:12px; font-size:.92rem; line-height:1.45; color:var(--on-dark); }
+.programme ol li::before{
+  content:counter(wk, decimal-leading-zero); position:absolute; left:14px; top:12px;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:.8rem; color:var(--yellow);
+}
+@media (max-width:960px){ .offer-grid.three{ grid-template-columns:1fr 1fr; } }
+@media (max-width:860px){
+  .offer-grid, .offer-grid.three{ grid-template-columns:1fr; }
+  .programme{ grid-template-columns:1fr; gap:22px; padding:30px 24px; }
+  .programme ol{ grid-template-columns:1fr; }
+}
+
+/* ============ Webinar ============ */
+.webinar-wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:52px; align-items:center; }
+.webinar-banner{ border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.webinar-banner img{ width:100%; height:auto; }
+.webinar-meta{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 1.4em; }
+.webinar-meta span{ font-size:.82rem; font-weight:700; color:var(--ink); background:var(--paper); border:1px solid var(--line); padding:8px 14px; border-radius:999px; }
+@media (max-width:860px){ .webinar-wrap{ grid-template-columns:1fr; gap:30px; } }
+
+/* ============ Contact form ============ */
+.contact .container{ max-width:760px; }
+.contact-intro{ text-align:center; }
+.contact-form{ text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:34px 34px 28px; box-shadow:var(--shadow-sm); margin-top:28px; position:relative; overflow:hidden; }
+.contact-form::before{ content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--brand-gradient); }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.field{ margin:0 0 18px; border:0; padding:0; min-width:0; }
+.field label, .field legend{ display:block; font-weight:700; font-size:.92rem; color:var(--ink); margin-bottom:7px; padding:0; }
+.field .req{ color:var(--purple); }
+.field .opt{ font-weight:400; color:var(--text-soft); }
+.field input[type=text], .field input[type=email], .field select, .field textarea{
+  width:100%; font:inherit; font-size:1rem; color:var(--ink); background:#fff;
+  border:1.5px solid rgba(20,15,34,0.28); border-radius:12px; padding:13px 14px; line-height:1.4;
+  transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.field textarea{ resize:vertical; min-height:130px; }
+.field input::placeholder{ color:rgba(34,28,51,0.55); }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--purple); box-shadow:0 0 0 4px rgba(155,44,158,0.18); }
+.field [aria-invalid="true"]{ border-color:#B3261E; }
+.field-error{ color:#B3261E; font-size:.86rem; font-weight:700; margin:6px 0 0; }
+.choice-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.field .choice{ display:inline-flex; align-items:center; gap:8px; font-weight:400; font-size:.95rem; border:1.5px solid rgba(20,15,34,0.28); border-radius:999px; padding:9px 16px; cursor:pointer; margin:0; }
+.choice input{ accent-color:var(--purple); width:16px; height:16px; margin:0; }
+.field .choice:has(input:checked){ border-color:var(--purple); background:rgba(155,44,158,0.08); }
+.field .choice:has(input:focus-visible){ box-shadow:0 0 0 4px rgba(155,44,158,0.18); }
+.hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.form-foot{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:6px; }
+.form-foot .btn{ border:0; cursor:pointer; font-family:inherit; }
+.form-foot .btn:focus-visible{ outline:3px solid var(--ink); outline-offset:3px; }
+.form-foot .btn[disabled]{ opacity:.6; cursor:wait; }
+.privacy-note{ flex:1; min-width:220px; font-size:.84rem; margin:0; line-height:1.55; }
+.form-status{ margin-top:16px; font-weight:700; font-size:.95rem; color:var(--ink); }
+.form-status:empty{ display:none; }
+.form-status.ok{ background:rgba(78,178,88,0.12); border-left:4px solid var(--green); padding:14px 16px; border-radius:10px; }
+.form-status.err{ background:rgba(179,38,30,0.08); border-left:4px solid #B3261E; padding:14px 16px; border-radius:10px; }
+.contact-alt{ text-align:center; margin-top:26px; }
+@media (max-width:640px){ .field-row{ grid-template-columns:1fr; gap:0; } .contact-form{ padding:28px 20px 22px; } }
+
 .section-head{ max-width:640px; margin-bottom:6px; }
-::selection{ background:var(--teal); color:#fff; }
+::selection{ background:var(--purple); color:#fff; }
 
 </style>
 </head>
@@ -321,7 +420,7 @@ footer a:hover img{ opacity:1; }
   <nav>
     <div class="logo">
       <a href="index.html">
-        <img src="assets/images/logo.png" alt="The Inclusion Exchange logo">
+        <img src="assets/images/tie-logo-web.png" width="116" height="144" alt="The Inclusion Exchange logo">
       </a>
     </div>
 
@@ -330,7 +429,8 @@ footer a:hover img{ opacity:1; }
     <ul id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#vision">Vision &amp; Mission</a></li>
-      <li><a href="#services">Our Work</a></li>
+      <li><a href="#services">What We Offer</a></li>
+      <li><a href="#webinar">Webinar</a></li>
       <li><a href="#partnerships">Partnerships</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -417,40 +517,121 @@ footer a:hover img{ opacity:1; }
 <section id="services" class="section-white">
   <div class="container">
 
-    <div class="section-head reveal">
-      <div class="eyebrow">What We Do</div>
-      <h2>Building the exchange</h2>
+    <div class="section-head offer-intro reveal">
+      <div class="eyebrow">What We Offer</div>
+      <h2>Unlock potential</h2>
+      <p class="lead">We help organisations break down the barriers to inclusion — turning untapped neurodivergent talent into corporate and community strength.</p>
+      <p>Our approach is practical and needs-led: support built around what each person actually needs, not around a diagnosis or a tick-box.</p>
     </div>
 
-    <div class="wwd-grid reveal-stagger">
+    <div class="audience">
+      <div class="audience-label reveal">For employers &amp; managers</div>
+      <div class="offer-grid reveal-stagger">
 
-      <div class="wwd-card">
-        <h3>Key Objectives</h3>
-        <ul>
-          <li>Empower neurodivergent individuals to lead the conversation.</li>
-          <li>Offer accessible educational workshops and outreach in schools and colleges.</li>
-          <li>Build strategic partnerships with institutions, businesses, and advocacy organisations.</li>
-          <li>Host high‑profile hybrid events with international reach.</li>
-          <li>Establish a strong presence across media and social channels.</li>
-        </ul>
+        <div class="offer-card" style="--accent:var(--blue)">
+          <div class="num">01</div>
+          <h3>Workplace Strategy</h3>
+          <p>Tailored frameworks for building a neuro-inclusive workplace — from policy to day-to-day practice.</p>
+          <ul>
+            <li>Review of current policies, processes and adjustments</li>
+            <li>Needs-led reasonable adjustments, without waiting for a diagnosis</li>
+            <li>Inclusive leadership and policy design</li>
+          </ul>
+          <p class="for">Who it's for: <span>leadership teams, HR and people managers</span></p>
+          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Workplace%20Strategy%20enquiry">Discuss your workplace →</a>
+        </div>
+
+        <div class="offer-card" style="--accent:var(--orange)">
+          <div class="num">02</div>
+          <h3>Training &amp; Awareness</h3>
+          <p>Engaging, practical workshops that shift mindsets, reduce bias and give managers things they can act on the next day.</p>
+          <ul>
+            <li>Workshops for managers and teams</li>
+            <li>Sessions led by people with lived experience</li>
+            <li>Delivered in person, online or hybrid</li>
+          </ul>
+          <p class="for">Who it's for: <span>managers, teams and whole organisations</span></p>
+          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Training%20enquiry">Book a workshop →</a>
+        </div>
+
       </div>
 
-      <div class="wwd-card">
-        <h3>Core Activities</h3>
-        <ul>
-          <li>Educational workshops &amp; toolkits for schools and educators.</li>
-          <li>Hybrid events, panels, and keynotes featuring neurodivergent leaders.</li>
-          <li>Podcasts and livestreams: "Voices of Business."</li>
-          <li>Collaborative partnerships with international organisations.</li>
-        </ul>
+      <div class="programme reveal">
+        <div>
+          <span class="tag">Suggested format</span>
+          <h3>A workshop programme for managers</h3>
+          <p>A suggested programme of one-hour workshops. Choose the full series or the sessions that fit your organisation.</p>
+        </div>
+        <ol>
+          <li>Sensory processing in the workplace</li>
+          <li>Executive functioning and task management</li>
+          <li>Communication and collaboration differences</li>
+          <li>Inclusive leadership and policy design</li>
+          <li>Strengths-based approaches to neurodiversity</li>
+          <li>Emotional regulation and resilience at work</li>
+          <li>Creating psychologically safe environments</li>
+        </ol>
       </div>
-
     </div>
 
-    <div class="wwd-image reveal">
-      <img src="assets/images/Photo3.png" alt="Workshops and events illustration">
+    <div class="audience">
+      <div class="audience-label reveal">For talent, communities &amp; partners</div>
+      <div class="offer-grid three reveal-stagger">
+
+        <div class="offer-card" style="--accent:var(--cyan)">
+          <div class="num">03</div>
+          <h3>Talent Partnerships</h3>
+          <p>Connecting forward-thinking businesses with skilled neurodivergent professionals.</p>
+          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Talent%20Partnerships">Find out more →</a>
+        </div>
+
+        <div class="offer-card" style="--accent:var(--purple)">
+          <div class="num">04</div>
+          <h3>Events &amp; Voices</h3>
+          <p>Panels, keynotes and hybrid events led by neurodivergent speakers, plus the <em>Voices of Business</em> podcast and livestreams.</p>
+          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Speaker%20or%20event%20enquiry">Invite a speaker →</a>
+        </div>
+
+        <div class="offer-card" style="--accent:var(--green)">
+          <div class="num">05</div>
+          <h3>Community &amp; Education</h3>
+          <p>Extending inclusion beyond the workplace — workshops and outreach toolkits for schools, colleges and educators.</p>
+          <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Community%20and%20education">Get in touch →</a>
+        </div>
+
+      </div>
     </div>
 
+    <div class="audience">
+      <div class="offer-card reveal" style="--accent:var(--yellow)">
+        <div class="num">06</div>
+        <h3>Partner with us</h3>
+        <p>Sponsorship and partnership packages are available, from community sponsor to headline partner. Details and pricing on request.</p>
+        <a class="offer-cta" href="mailto:elizabeth@theinclusionexchange.uk?subject=Sponsorship%20and%20partnership%20enquiry">Request partnership details →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="webinar" class="section-tint">
+  <div class="container">
+    <div class="webinar-wrap">
+      <div class="webinar-banner reveal">
+        <img src="assets/images/cmi-webinar-2026-11-04.jpg" width="1200" height="627" alt="CMI Communities digital event: Workplace Inclusion for Neurodivergent People. CMI Regional Voice – West Midlands &amp; North West. Wednesday 4th November, 12:00 GMT." loading="lazy">
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Digital Event</div>
+        <h2>Workplace Inclusion for Neurodivergent People</h2>
+        <div class="webinar-meta">
+          <span>Wed 4 November</span><span>12:00 GMT</span><span>Online</span>
+        </div>
+        <p>A CMI Regional Voice panel for the West Midlands &amp; North West, moderated by our director Elizabeth Cameron, with practical strategies managers can put into practice.</p>
+        <p>Joined us from the webinar? See <a href="#services" style="color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--purple)">what we offer</a>, or get in touch to continue the conversation.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -481,13 +662,74 @@ footer a:hover img{ opacity:1; }
 </section>
 
 <section class="contact" id="contact">
-  <div class="container reveal">
-    <div class="eyebrow" style="justify-content:center;">Get Involved</div>
-    <h2>Join us in building inclusive futures</h2>
-    <p>
-      Whether you're a business leader, educator, or advocate, we invite you to join us. Together, we can unlock potential and build inclusive futures.
-    </p>
-    <a class="contact-card" href="mailto:elizabeth@theinclusionexchange.uk"><span class="ico">✉</span> elizabeth@theinclusionexchange.uk</a>
+  <div class="container">
+    <div class="contact-intro reveal">
+      <div class="eyebrow" style="justify-content:center;">Get Involved</div>
+      <h2>Join us in building inclusive futures</h2>
+      <p>
+        Whether you're a business leader, educator, or advocate, we invite you to join us. Tell us a little about what you're looking for and we'll get back to you.
+      </p>
+    </div>
+
+    <form id="contact-form" class="contact-form reveal" action="mailto:elizabeth@theinclusionexchange.uk" method="post" enctype="text/plain" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          <p class="field-error" id="cf-name-err" hidden>Please tell us your name.</p>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required>
+          <p class="field-error" id="cf-email-err" hidden>Please enter an email address we can reply to.</p>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-org">Organisation <span class="opt">(optional)</span></label>
+          <input id="cf-org" name="organisation" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="cf-topic">I'm interested in</label>
+          <select id="cf-topic" name="topic">
+            <option>Workplace Strategy</option>
+            <option>Training &amp; Awareness / workshops</option>
+            <option>Talent Partnerships</option>
+            <option>Events &amp; speakers</option>
+            <option>Community &amp; Education</option>
+            <option>Partnership &amp; sponsorship</option>
+            <option>Following up from the CMI webinar</option>
+            <option selected>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cf-message">Your message <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+        <p class="field-error" id="cf-message-err" hidden>Please add a short message.</p>
+      </div>
+      <fieldset class="field">
+        <legend>How would you prefer us to get back to you?</legend>
+        <div class="choice-row">
+          <label class="choice"><input type="radio" name="preferred_contact" value="Email" checked> Email</label>
+          <label class="choice"><input type="radio" name="preferred_contact" value="Phone call"> Phone call</label>
+          <label class="choice"><input type="radio" name="preferred_contact" value="Video call"> Video call</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="cf-access">Anything that would make communicating with us easier? <span class="opt">(optional)</span></label>
+        <input id="cf-access" name="communication_needs" type="text" placeholder="For example: written follow-up, agenda in advance, no phone calls">
+      </div>
+      <div class="hp" aria-hidden="true"><label for="cf-gotcha">Leave this empty</label><input id="cf-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+
+      <div class="form-foot">
+        <button class="btn btn-primary" type="submit">Send message →</button>
+        <p class="privacy-note">We'll only use these details to reply to your enquiry. Messages are delivered by Formspree, a third-party form service.</p>
+      </div>
+      <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
+    </form>
+
+    <p class="contact-alt reveal">Prefer email? <a class="contact-card" href="mailto:elizabeth@theinclusionexchange.uk"><span class="ico">✉</span> elizabeth@theinclusionexchange.uk</a></p>
   </div>
 </section>
 
@@ -542,6 +784,64 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
+
+/* ---------- Contact form ----------
+   Set FORMSPREE_ID to the form ID from the client's Formspree account (e.g. 'xyzabcd').
+   While it is empty, the form opens the visitor's email app with the message pre-filled. */
+const FORMSPREE_ID = '';
+const CONTACT_EMAIL = 'elizabeth@theinclusionexchange.uk';
+(function(){
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = document.getElementById('cf-status');
+  const btn = form.querySelector('button[type=submit]');
+  if (FORMSPREE_ID) form.action = 'https://formspree.io/f/' + FORMSPREE_ID;
+
+  // pre-select topic from links like #contact?topic=Talent%20Partnerships
+  const m = location.hash.match(/topic=([^&]+)/);
+  if (m) { const t = decodeURIComponent(m[1]); [...form.topic.options].forEach(o => { if (o.text.startsWith(t)) o.selected = true; }); }
+
+  const required = [['cf-name', v => v.trim().length > 0], ['cf-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())], ['cf-message', v => v.trim().length > 0]];
+  function validate(){
+    let first = null;
+    required.forEach(([id, ok]) => {
+      const el = document.getElementById(id), err = document.getElementById(id + '-err'), good = ok(el.value);
+      el.setAttribute('aria-invalid', good ? 'false' : 'true');
+      if (good) { el.removeAttribute('aria-describedby'); err.hidden = true; }
+      else { el.setAttribute('aria-describedby', id + '-err'); err.hidden = false; first = first || el; }
+    });
+    if (first) first.focus();
+    return !first;
+  }
+  function say(msg, cls){ status.className = 'form-status ' + (cls || ''); status.textContent = msg; }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    say('');
+    if (!validate()) return;
+    if (form._gotcha.value) return;   // spam trap
+    const data = new FormData(form);
+
+    if (!FORMSPREE_ID) {
+      const lines = ['Name: ' + data.get('name'), 'Email: ' + data.get('email'), 'Organisation: ' + (data.get('organisation') || '-'),
+        'Interested in: ' + data.get('topic'), 'Preferred contact: ' + data.get('preferred_contact'),
+        'Communication needs: ' + (data.get('communication_needs') || '-'), '', data.get('message')];
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Website enquiry: ' + data.get('topic')) + '&body=' + encodeURIComponent(lines.join('\n'));
+      say('Your email app should open with your message ready to send. If it doesn\'t, email us at ' + CONTACT_EMAIL + '.', 'ok');
+      return;
+    }
+
+    btn.disabled = true; say('Sending…');
+    try {
+      const res = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' } });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      say('Thank you — your message has been sent. We\'ll be in touch soon.', 'ok');
+    } catch (err) {
+      say('Sorry, your message couldn\'t be sent. Please try again, or email us at ' + CONTACT_EMAIL + '.', 'err');
+    } finally { btn.disabled = false; }
+  });
+})();
 </script>
 
 </body>
