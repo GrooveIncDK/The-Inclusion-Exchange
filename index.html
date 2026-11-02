@@ -411,6 +411,19 @@ footer a:hover img{ opacity:1; }
 .contact-alt{ text-align:center; margin-top:26px; }
 @media (max-width:640px){ .field-row{ grid-template-columns:1fr; gap:0; } .contact-form{ padding:28px 20px 22px; } }
 
+/* ============ People ============ */
+.people-grid{ display:grid; grid-template-columns:1fr; gap:28px; margin-top:40px; }
+.person{ display:grid; grid-template-columns:200px 1fr; gap:36px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:32px; box-shadow:var(--shadow-sm); }
+.person img{ width:200px; height:200px; display:block; }
+.person h3{ font-size:1.4rem; margin-bottom:.2em; }
+.person .role{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--purple); margin-bottom:1em; }
+.person p.bio{ font-size:1rem; margin-bottom:0; }
+.person p.bio + p.bio{ margin-top:.85em; }
+.person{ align-items:start; }
+.frame-note{ display:flex; align-items:center; gap:10px; margin-top:22px; font-size:.88rem; color:var(--text-soft); }
+.frame-note::before{ content:''; width:16px; height:16px; border-radius:50%; flex:none; background:conic-gradient(var(--blue), var(--cyan), var(--green), var(--lime), var(--yellow), var(--orange), var(--purple)); -webkit-mask:radial-gradient(circle, transparent 4px, #000 4.5px); mask:radial-gradient(circle, transparent 4px, #000 4.5px); }
+@media (max-width:700px){ .person{ grid-template-columns:1fr; justify-items:center; text-align:center; padding:28px 22px; } .person img{ width:180px; height:180px; } .person p.bio{ text-align:left; } }
+
 .section-head{ max-width:640px; margin-bottom:6px; }
 ::selection{ background:var(--purple); color:#fff; }
 
@@ -431,6 +444,7 @@ footer a:hover img{ opacity:1; }
 
     <ul id="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#people">People</a></li>
       <li><a href="#vision">Vision &amp; Mission</a></li>
       <li><a href="#services">What We Offer</a></li>
       <li><a href="#webinar">Webinar</a></li>
@@ -483,6 +497,41 @@ footer a:hover img{ opacity:1; }
       </div>
 
     </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="people" class="section-white">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">People</div>
+      <h2>The people behind the exchange</h2>
+    </div>
+    <div class="people-grid">
+      <article class="person reveal">
+        <img src="assets/images/tie-people-elizabeth-cameron.jpg" width="400" height="400" alt="Elizabeth Cameron, Director" loading="lazy">
+        <div>
+          <h3>Elizabeth Cameron</h3>
+          <div class="role">Director</div>
+          <p class="bio">Elizabeth Cameron is an Equality, Diversity &amp; Inclusion Consultant, Trustee, Mentor, and Motivational speaker. She focuses on the intersectional experiences of race and class, women's health, single parents, violence against women and girls, domestic violence and rape, poverty, LGBT+ rights, and disability inequality.</p>
+          <p class="bio">With over 25 years of experience, Elizabeth has supported and represented ethnically diverse backgrounds, women, and disabled individuals at a national level. She is a qualified practitioner in supporting women who have experienced domestic and sexual violence. Elizabeth has extensive knowledge of public sector services and has served the third sector women's services and community on race issues.</p>
+          <p class="bio">Elizabeth has held various leadership roles, including Chair of the GMCA Race Equality Panel from 2021 to 2023, where she led the co-creation of policies on race and impacted the Tackling Equalities agenda, and two terms as external Trustee at the University of Manchester. She is also the Diversity and Inclusion lead for the Chartered Management Institute West Midlands and North West Board, North West Chair for the Black Leadership Group, Public Governor (Salford) Northern Care Alliance, Trustee for Faith Network for Manchester, Ambassador for Show Racism the Red Card.</p>
+          <p class="bio">Northern Power Women finalist: Disruptor for Good, 2022; Person with Purpose, 2025.</p>
+        </div>
+      </article>
+      <article class="person reveal">
+        <img src="assets/images/tie-people-benjamin-williamson-westerman.jpg" width="400" height="400" alt="Benjamin J M Williamson-Westerman Esq., Co-founder" loading="lazy">
+        <div>
+          <h3>Benjamin J M Williamson-Westerman Esq.</h3>
+          <div class="role">Co-founder</div>
+          <p class="bio">Benjamin James Matthew Williamson-Westerman is an entrepreneur, farmer and technology developer, with a career spanning food, agriculture, sustainability and international business. He is a co-founder of The Inclusion Exchange.</p>
+          <p class="bio">Diagnosed with extremely severe dyslexia, he has turned his experience of neurological divergence into a commitment to recognising different ways of thinking as a source of innovation, capability and value. He advocates for workplaces where neurodivergent people are understood, supported and empowered to contribute on their own terms.</p>
+          <p class="bio">Benjamin is Director of Global Operations at Your Footprint, a carbon-accounting platform for farms and land-based businesses, and founder of Sustainable Development Crescent, a charity serving communities in the Global South. He farms at Staalbaek Gaard, home of the farm shop Hindsholm Gaardbutik, runs the web and design studio Groove Inc, and founded the Institute of Spiritual Learning.</p>
+        </div>
+      </article>
+    </div>
+    <p class="frame-note reveal">The spectrum frame marks team members who have chosen to share that they're neurodivergent.</p>
   </div>
 </section>
 
